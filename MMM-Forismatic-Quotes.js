@@ -59,8 +59,6 @@ Module.register("MMM-Forismatic-Quotes", {
 
 		var dataRequest = new XMLHttpRequest();
 		dataRequest.open("GET", urlApi, true);
-		dataRequest.setRequestHeader('User-Agent', 'Super Agent/0.0.1');
-		dataRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		dataRequest.onreadystatechange = function() {
 			console.log(this.readyState);
 			if (this.readyState === 4) {
