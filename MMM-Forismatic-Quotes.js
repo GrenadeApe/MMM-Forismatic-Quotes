@@ -13,6 +13,7 @@ Module.register("MMM-Forismatic-Quotes", {
 		retryDelay: 5000,
 		animationSpeed: 5,
 		lang: "en",
+		initialLoadDelay: 10,
 		key: "123456"
 		
 	},
@@ -32,9 +33,9 @@ Module.register("MMM-Forismatic-Quotes", {
       socketNotificationReceived: function(notification, payload) {
         if (notification === "QUOTE_RESULT") {
             this.processQuote(payload);
-            if (this.rotateInterval == null) {
+            /* if (this.rotateInterval == null) {
                 this.scheduleCarousel();
-            }
+            } */
         }
         this.updateDom(this.config.initialLoadDelay);
     },
@@ -64,9 +65,9 @@ Module.register("MMM-Forismatic-Quotes", {
 			wrapper.innerHTML = this.translate("LOADING");
 			wrapper.className = "dimmed light small";
 			return wrapper;
-		}
-		// If this.dataRequest is not empty
-		 var quote = this.quote;
+		}else{
+			// If this.dataRequest is not empty
+			 var quote = this.quote;
 		 
 		 
 			var wrapperData = document.createElement("div");
